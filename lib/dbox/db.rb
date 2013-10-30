@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Dbox
   class MissingDatabase < RuntimeError; end
   class CorruptDatabase < RuntimeError; end

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Dbox
   module Loggable
     def self.included receiver

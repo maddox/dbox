@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Dbox
   module Utils
     def times_equal?(t1, t2)

@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Dbox
   NUM_TRIES = 3
   TIME_BETWEEN_TRIES = 3 # in seconds
@@ -14,7 +16,7 @@ module Dbox
     def self.authorize
       app_key = ENV["DROPBOX_APP_KEY"]
       app_secret = ENV["DROPBOX_APP_SECRET"]
-      
+
       raise(ConfigurationError, "Please set the DROPBOX_APP_KEY environment variable to a Dropbox application key") unless app_key
       raise(ConfigurationError, "Please set the DROPBOX_APP_SECRET environment variable to a Dropbox application secret") unless app_secret
 
@@ -30,7 +32,7 @@ module Dbox
 
       # This will fail if the user gave us an invalid authorization code
       access_token, user_id = flow.finish(code)
-      
+
       puts "export DROPBOX_ACCESS_TOKEN=#{access_token}"
       puts "export DROPBOX_USER_ID=#{user_id}"
       puts
@@ -61,7 +63,7 @@ module Dbox
     def connect
       access_token = ENV["DROPBOX_ACCESS_TOKEN"]
       access_type = ENV["DROPBOX_ACCESS_TYPE"] || "dropbox"
-      
+
       raise(ConfigurationError, "Please set the DROPBOX_ACCESS_TOKEN environment variable to a Dropbox access token") unless access_token
       raise(ConfigurationError, "Please set the DROPBOX_ACCESS_TYPE environment variable either dropbox (full access) or sandbox (App access)") unless access_type == "dropbox" || access_type == "app_folder"
       @client = DropboxClient.new(access_token)

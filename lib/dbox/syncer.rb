@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module Dbox
   class Syncer
     MIN_BYTES_TO_STREAM_DOWNLOAD = 1024 * 100 # 100kB
